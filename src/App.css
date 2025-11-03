@@ -1,196 +1,172 @@
-/* 🎮 Fuente retro */
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-
+/* 🌈 Estilos generales */
 body {
+  background-color: #0f172a;
+  color: #f8fafc;
+  font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #000;
-  color: #fff;
-  font-family: 'Press Start 2P', cursive;
   overflow-x: hidden;
 }
 
-/* 💡 Efecto de brillo neón */
-.neon-glow {
-  text-shadow: 0 0 8px #ff00ff, 0 0 15px #ff00ff, 0 0 25px #ff00ff;
+/* 🔹 Contenedor principal */
+.app-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* ✨ Texto con glitch animado */
-.glitch-text {
-  position: relative;
-  display: inline-block;
-  color: #ff00ff;
-  text-shadow: 0 0 3px #ff00ff, 0 0 6px #ff00ff, 0 0 10px #ff00ff;
-  animation: glitch 1.5s infinite;
+/* 🔹 Título principal */
+.app-title {
+  text-align: center;
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin: 1.5rem 0;
+  color: #38bdf8;
+  text-shadow: 2px 2px 6px rgba(56, 189, 248, 0.3);
+  line-height: 1.2;
+  word-break: break-word;
+  padding: 0 0.5rem;
 }
 
-@keyframes glitch {
-  0% { text-shadow: 2px 0 #00ffff, -2px 0 #ff00ff; }
-  25% { text-shadow: -2px -1px #00ffff, 2px 1px #ff00ff; }
-  50% { text-shadow: 2px 1px #00ffff, -2px -1px #ff00ff; }
-  75% { text-shadow: -1px 1px #00ffff, 1px -1px #ff00ff; }
-  100% { text-shadow: 2px 0 #00ffff, -2px 0 #ff00ff; }
+/* 🔹 Sección de juegos */
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+  width: 100%;
 }
 
-/* 🕹️ Tarjetas de juego */
-.card {
-  position: relative;
-  width: 18rem;
-  background: linear-gradient(to bottom, #3b0066, #6a0dad, #2b004d);
-  border: 2px solid #ff00ff;
+/* 🔹 Tarjeta de juego */
+.game-card {
+  background-color: #1e293b;
   border-radius: 1rem;
-  box-shadow: 0 0 25px #ff00ff;
-  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
   overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 40px #00ffff;
+.game-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(56, 189, 248, 0.4);
 }
 
-.card img {
+/* 🔹 Imagen */
+.game-card img {
   width: 100%;
   height: 180px;
   object-fit: cover;
-  border-radius: 0.5rem;
-  border: 1px solid #ff00ff;
-  box-shadow: 0 0 15px #ff00ff;
-  background-color: black;
 }
 
-/* 💀 Eliminar texto alternativo si falla la imagen */
-.card img::after {
-  content: "";
-  display: none;
-}
-
-/* ✅ Evita mostrar texto “image not found” */
-.card img:before,
-.card img:after {
-  display: none !important;
-  content: none !important;
-}
-
-/* ✍️ Texto dentro de las tarjetas */
-.card h2 {
-  font-size: 0.9rem;
-  color: #ffb6ff;
-  margin: 0.5rem 0;
+/* 🔹 Contenido dentro de la tarjeta */
+.game-info {
+  padding: 1rem;
   text-align: center;
 }
 
-.card p {
-  font-size: 0.6rem;
-  text-align: center;
-  color: #d6b6ff;
-  margin: 0.2rem 0;
-}
-
-/* 💬 Reseñas */
-.review-form,
-.review-list {
-  background: linear-gradient(to bottom, #240043, #4a0072);
-  border: 2px solid #ff00ff;
-  border-radius: 1.5rem;
-  padding: 2rem;
-  box-shadow: 0 0 25px #ff00ff;
-}
-
-.review-form input,
-.review-form textarea,
-.review-form select {
+/* 🔹 Formularios */
+.form-container {
+  background-color: #1e293b;
+  border-radius: 1rem;
+  padding: 1.2rem;
+  margin: 1.5rem 0;
+  box-shadow: 0 4px 20px rgba(56, 189, 248, 0.2);
   width: 100%;
-  background: #1a001f;
-  color: #fff;
-  border: 2px solid #ff00ff;
-  border-radius: 0.5rem;
-  padding: 0.5rem;
+  max-width: 500px;
+}
+
+.form-container h2 {
+  text-align: center;
+  color: #38bdf8;
   margin-bottom: 1rem;
-  font-size: 0.7rem;
-  transition: all 0.3s ease;
+  font-size: 1.4rem;
 }
 
-.review-form input:focus,
-.review-form textarea:focus,
-.review-form select:focus {
-  border-color: #00ffff;
-  outline: none;
-  box-shadow: 0 0 10px #00ffff;
-}
-
-.review-form button {
+.form-container input,
+.form-container textarea,
+.form-container button {
   width: 100%;
-  background: linear-gradient(90deg, #ff00ff, #00ffff);
+  padding: 0.75rem;
+  margin-top: 0.6rem;
   border: none;
-  color: white;
-  padding: 0.6rem 1rem;
-  font-size: 0.7rem;
-  border-radius: 0.8rem;
-  cursor: pointer;
-  transition: 0.3s ease;
-}
-
-.review-form button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 15px #00ffff;
-}
-
-/* 🧾 Lista de reseñas */
-.review-item {
-  border-bottom: 1px solid #ff00ff;
-  padding: 1rem 0;
-}
-
-.review-item:last-child {
-  border-bottom: none;
-}
-
-.review-item h3 {
-  color: #ffb6ff;
-  font-size: 0.8rem;
-}
-
-.review-item p {
-  color: #d6b6ff;
-  font-size: 0.6rem;
-  margin-top: 0.3rem;
-}
-
-/* ⭐ Puntuaciones */
-.star-rating {
-  display: flex;
-  justify-content: center;
-  gap: 0.3rem;
+  border-radius: 0.5rem;
   font-size: 1rem;
-  margin-top: 0.5rem;
-  color: gold;
 }
 
-/* 📊 Dashboard */
-.stats-dashboard {
-  background: linear-gradient(to bottom, #240043, #4a0072);
-  border: 2px solid #ff00ff;
-  border-radius: 1.5rem;
-  padding: 2rem;
-  box-shadow: 0 0 25px #ff00ff;
-  text-align: center;
+.form-container button {
+  background-color: #38bdf8;
+  color: #0f172a;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.stats-dashboard h3 {
-  color: #ffb6ff;
-  font-size: 0.9rem;
+.form-container button:hover {
+  background-color: #0ea5e9;
 }
 
-.stats-dashboard p {
-  font-size: 0.7rem;
-  color: #d6b6ff;
+/* 🔹 Reseñas */
+.reviews-section {
+  margin-top: 2rem;
+  width: 100%;
+  max-width: 500px;
 }
 
-/* 💜 Footer */
-footer {
-  text-align: center;
-  color: #ffb6ff;
-  margin-top: 3rem;
-  text-shadow: 0 0 5px #ff00ff;
+.review-card {
+  background-color: #1e293b;
+  border-radius: 1rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* 📱 RESPONSIVE - móvil */
+@media (max-width: 600px) {
+  .app-title {
+    font-size: 1.8rem;
+    padding: 0 1rem;
+  }
+
+  .games-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .form-container,
+  .reviews-section {
+    max-width: 90%;
+  }
+
+  .form-container h2,
+  .reviews-section h2 {
+    font-size: 1.3rem;
+    text-align: center;
+  }
+
+  .game-card img {
+    height: 150px;
+  }
+}
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+/* 📱 Corrección de título en pantallas pequeñas */
+@media (max-width: 600px) {
+  .app-title {
+    font-size: 1.8rem !important; /* Reduce tamaño del título */
+    line-height: 2.2rem;
+    word-break: break-word; /* Permite saltos naturales */
+    text-align: center;
+    padding: 0 0.5rem; /* Evita que se corte por los bordes */
+  }
+
+  /* Ajusta también el contenedor del formulario */
+  .form-container {
+    width: 95%;
+    margin: 0 auto;
+  }
 }

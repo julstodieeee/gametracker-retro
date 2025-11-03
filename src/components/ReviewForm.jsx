@@ -1,71 +1,56 @@
 import React, { useState } from "react";
 
-const ReviewForm = ({ onAddReview }) => {
+function ReviewForm({ onAddReview }) {
   const [name, setName] = useState("");
-  const [review, setReview] = useState("");
-  const [rating, setRating] = useState("");
+  const [game, setGame] = useState("");
+  const [text, setText] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!name || !review || !rating) return;
-    onAddReview({ name, review, rating: parseFloat(rating) });
+    if (!name || !game || !text) return;
+
+    const newReview = {
+      id: Date.now(),
+      name,
+      game,
+      text,
+    };
+
+    onAddReview(newReview);
     setName("");
-    setReview("");
-    setRating("");
+    setGame("");
+    setText("");
   };
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="review-form text-center text-white"
-    >
-      <h2 className="text-lg mb-6 text-pink-400 neon-glow">
-        ✨ Escribe tu reseña ✨
-      </h2>
+    <form onSubmit={handleSubmit}>
+      <label>Tu nombre</label>
+      <input
+        type="text"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        placeholder="Ej: Alex"
+      />
 
-      <div className="mb-4">
-        <label className="block mb-2 text-xs text-purple-300">
-          Tu nombre:
-        </label>
-        <input
-          type="text"
-          placeholder="Ej: Julieta"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-      </div>
+      <label>Juego</label>
+      <input
+        type="text"
+        value={game}
+        onChange={(e) => setGame(e.target.value)}
+        placeholder="Ej: Super Mario Bros"
+      />
 
-      <div className="mb-4">
-        <label className="block mb-2 text-xs text-purple-300">
-          Tu reseña:
-        </label>
-        <textarea
-          placeholder="Escribe aquí tu opinión..."
-          value={review}
-          onChange={(e) => setReview(e.target.value)}
-          rows="3"
-        />
-      </div>
+      <label>Tu reseña</label>
+      <textarea
+        rows="3"
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+        placeholder="Escribe tu opinión..."
+      ></textarea>
 
-      <div className="mb-6">
-        <label className="block mb-2 text-xs text-purple-300">
-          Puntuación:
-        </label>
-        <select value={rating} onChange={(e) => setRating(e.target.value)}>
-          <option value="">Selecciona ⭐</option>
-          <option value="5">⭐ 5 - Excelente</option>
-          <option value="4">⭐ 4 - Muy bueno</option>
-          <option value="3">⭐ 3 - Bueno</option>
-          <option value="2">⭐ 2 - Regular</option>
-          <option value="1">⭐ 1 - Malo</option>
-        </select>
-      </div>
-
-      <button type="submit" className="mt-4">
-        Enviar reseña 🚀
-      </button>
+      <button type="submit">Enviar reseña</button>
     </form>
   );
-};
+}
 
 export default ReviewForm;
