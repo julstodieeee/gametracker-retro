@@ -2,11 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Fuente retro pixel */
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-
-body {
-  background-color: #0b0c10;
-  color: #c5c6c7;
-  font-family: 'Press Start 2P', cursive;
+.neon-text {
+  text-shadow: 0 0 5px #ff8ad4, 0 0 10px #ff8ad4, 0 0 20px #ff66c4, 0 0 40px #ff33a8;
 }

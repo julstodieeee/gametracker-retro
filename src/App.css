@@ -1,38 +1,196 @@
-.App {
+/* 🎮 Fuente retro */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+  color: #fff;
+  font-family: 'Press Start 2P', cursive;
+  overflow-x: hidden;
+}
+
+/* 💡 Efecto de brillo neón */
+.neon-glow {
+  text-shadow: 0 0 8px #ff00ff, 0 0 15px #ff00ff, 0 0 25px #ff00ff;
+}
+
+/* ✨ Texto con glitch animado */
+.glitch-text {
+  position: relative;
+  display: inline-block;
+  color: #ff00ff;
+  text-shadow: 0 0 3px #ff00ff, 0 0 6px #ff00ff, 0 0 10px #ff00ff;
+  animation: glitch 1.5s infinite;
+}
+
+@keyframes glitch {
+  0% { text-shadow: 2px 0 #00ffff, -2px 0 #ff00ff; }
+  25% { text-shadow: -2px -1px #00ffff, 2px 1px #ff00ff; }
+  50% { text-shadow: 2px 1px #00ffff, -2px -1px #ff00ff; }
+  75% { text-shadow: -1px 1px #00ffff, 1px -1px #ff00ff; }
+  100% { text-shadow: 2px 0 #00ffff, -2px 0 #ff00ff; }
+}
+
+/* 🕹️ Tarjetas de juego */
+.card {
+  position: relative;
+  width: 18rem;
+  background: linear-gradient(to bottom, #3b0066, #6a0dad, #2b004d);
+  border: 2px solid #ff00ff;
+  border-radius: 1rem;
+  box-shadow: 0 0 25px #ff00ff;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 40px #00ffff;
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  border: 1px solid #ff00ff;
+  box-shadow: 0 0 15px #ff00ff;
+  background-color: black;
+}
+
+/* 💀 Eliminar texto alternativo si falla la imagen */
+.card img::after {
+  content: "";
+  display: none;
+}
+
+/* ✅ Evita mostrar texto “image not found” */
+.card img:before,
+.card img:after {
+  display: none !important;
+  content: none !important;
+}
+
+/* ✍️ Texto dentro de las tarjetas */
+.card h2 {
+  font-size: 0.9rem;
+  color: #ffb6ff;
+  margin: 0.5rem 0;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.card p {
+  font-size: 0.6rem;
+  text-align: center;
+  color: #d6b6ff;
+  margin: 0.2rem 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* 💬 Reseñas */
+.review-form,
+.review-list {
+  background: linear-gradient(to bottom, #240043, #4a0072);
+  border: 2px solid #ff00ff;
+  border-radius: 1.5rem;
+  padding: 2rem;
+  box-shadow: 0 0 25px #ff00ff;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.review-form input,
+.review-form textarea,
+.review-form select {
+  width: 100%;
+  background: #1a001f;
+  color: #fff;
+  border: 2px solid #ff00ff;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 0.7rem;
+  transition: all 0.3s ease;
+}
+
+.review-form input:focus,
+.review-form textarea:focus,
+.review-form select:focus {
+  border-color: #00ffff;
+  outline: none;
+  box-shadow: 0 0 10px #00ffff;
+}
+
+.review-form button {
+  width: 100%;
+  background: linear-gradient(90deg, #ff00ff, #00ffff);
+  border: none;
   color: white;
+  padding: 0.6rem 1rem;
+  font-size: 0.7rem;
+  border-radius: 0.8rem;
+  cursor: pointer;
+  transition: 0.3s ease;
 }
 
-.App-link {
-  color: #61dafb;
+.review-form button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #00ffff;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* 🧾 Lista de reseñas */
+.review-item {
+  border-bottom: 1px solid #ff00ff;
+  padding: 1rem 0;
+}
+
+.review-item:last-child {
+  border-bottom: none;
+}
+
+.review-item h3 {
+  color: #ffb6ff;
+  font-size: 0.8rem;
+}
+
+.review-item p {
+  color: #d6b6ff;
+  font-size: 0.6rem;
+  margin-top: 0.3rem;
+}
+
+/* ⭐ Puntuaciones */
+.star-rating {
+  display: flex;
+  justify-content: center;
+  gap: 0.3rem;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  color: gold;
+}
+
+/* 📊 Dashboard */
+.stats-dashboard {
+  background: linear-gradient(to bottom, #240043, #4a0072);
+  border: 2px solid #ff00ff;
+  border-radius: 1.5rem;
+  padding: 2rem;
+  box-shadow: 0 0 25px #ff00ff;
+  text-align: center;
+}
+
+.stats-dashboard h3 {
+  color: #ffb6ff;
+  font-size: 0.9rem;
+}
+
+.stats-dashboard p {
+  font-size: 0.7rem;
+  color: #d6b6ff;
+}
+
+/* 💜 Footer */
+footer {
+  text-align: center;
+  color: #ffb6ff;
+  margin-top: 3rem;
+  text-shadow: 0 0 5px #ff00ff;
 }
