@@ -1,172 +1,146 @@
-/* 🌈 Estilos generales */
+/* 🎮 ESTILO RETRO NEÓN PARA GAME TRACKER RETRO */
+
 body {
-  background-color: #0f172a;
-  color: #f8fafc;
-  font-family: 'Poppins', sans-serif;
   margin: 0;
-  padding: 0;
+  font-family: 'Press Start 2P', cursive;
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  background-image: radial-gradient(circle at center, #1a0033, #000);
+  min-height: 100vh;
   overflow-x: hidden;
 }
 
-/* 🔹 Contenedor principal */
-.app-container {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* 🔹 Título principal */
+/* Título principal con efecto neón */
 .app-title {
-  text-align: center;
-  font-size: 2.4rem;
-  font-weight: 700;
-  margin: 1.5rem 0;
-  color: #38bdf8;
-  text-shadow: 2px 2px 6px rgba(56, 189, 248, 0.3);
-  line-height: 1.2;
-  word-break: break-word;
-  padding: 0 0.5rem;
+  font-size: 2rem;
+  text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 40px #ff00ff;
+  color: #fff;
+  margin-top: 40px;
 }
 
-/* 🔹 Sección de juegos */
+/* Subtítulo */
+.app-subtitle {
+  color: #ccc;
+  margin-bottom: 30px;
+  font-size: 0.8rem;
+}
+
+/* Contenedor principal */
+.app-container {
+  padding: 20px;
+}
+
+/* Tarjetas de juegos */
 .games-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
-  margin-bottom: 2rem;
-  width: 100%;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
 }
 
-/* 🔹 Tarjeta de juego */
 .game-card {
-  background-color: #1e293b;
-  border-radius: 1rem;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: linear-gradient(145deg, #2a0066, #000033);
+  border: 2px solid #ff00ff;
+  border-radius: 15px;
+  box-shadow: 0 0 10px #ff00ff, 0 0 20px #660099;
+  padding: 15px;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
 }
 
 .game-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(56, 189, 248, 0.4);
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #ff00ff, 0 0 40px #9900ff;
 }
 
-/* 🔹 Imagen */
 .game-card img {
   width: 100%;
-  height: 180px;
-  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 10px;
 }
 
-/* 🔹 Contenido dentro de la tarjeta */
-.game-info {
-  padding: 1rem;
-  text-align: center;
+.game-card h3 {
+  color: #fff;
+  font-size: 1rem;
+  margin-bottom: 5px;
 }
 
-/* 🔹 Formularios */
+.game-card p {
+  color: #ccc;
+  font-size: 0.8rem;
+}
+
+/* Formulario */
 .form-container {
-  background-color: #1e293b;
-  border-radius: 1rem;
-  padding: 1.2rem;
-  margin: 1.5rem 0;
-  box-shadow: 0 4px 20px rgba(56, 189, 248, 0.2);
-  width: 100%;
-  max-width: 500px;
+  margin-top: 40px;
+  background: linear-gradient(180deg, #300060, #12002b);
+  border: 2px solid #ff00ff;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 0 15px #ff00ff;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .form-container h2 {
-  text-align: center;
-  color: #38bdf8;
-  margin-bottom: 1rem;
-  font-size: 1.4rem;
+  color: #ff99ff;
+  text-shadow: 0 0 10px #ff00ff;
+  margin-bottom: 20px;
 }
 
-.form-container input,
-.form-container textarea,
-.form-container button {
-  width: 100%;
-  padding: 0.75rem;
-  margin-top: 0.6rem;
+input,
+textarea {
+  width: 90%;
+  padding: 8px;
+  border: 2px solid #ff00ff;
+  border-radius: 5px;
+  background-color: #000;
+  color: #fff;
+  margin-bottom: 15px;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.6rem;
+}
+
+button {
+  background: #ff00ff;
   border: none;
-  border-radius: 0.5rem;
-  font-size: 1rem;
-}
-
-.form-container button {
-  background-color: #38bdf8;
-  color: #0f172a;
-  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-family: 'Press Start 2P', cursive;
+  color: #000;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  box-shadow: 0 0 10px #ff00ff;
+  transition: 0.3s;
 }
 
-.form-container button:hover {
-  background-color: #0ea5e9;
+button:hover {
+  background: #ff66ff;
+  box-shadow: 0 0 20px #ff00ff;
 }
 
-/* 🔹 Reseñas */
-.reviews-section {
-  margin-top: 2rem;
-  width: 100%;
-  max-width: 500px;
+/* Footer */
+.footer {
+  margin-top: 50px;
+  color: #ff99ff;
+  text-shadow: 0 0 10px #ff00ff;
+  font-size: 0.7rem;
+  padding-bottom: 30px;
 }
 
-.review-card {
-  background-color: #1e293b;
-  border-radius: 1rem;
-  padding: 1rem;
-  margin-bottom: 1rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-/* 📱 RESPONSIVE - móvil */
-@media (max-width: 600px) {
+/* 📱 Responsive */
+@media (max-width: 768px) {
   .app-title {
-    font-size: 1.8rem;
-    padding: 0 1rem;
+    font-size: 1.4rem;
   }
 
-  .games-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
+  .game-card {
+    font-size: 0.8rem;
   }
 
-  .form-container,
-  .reviews-section {
-    max-width: 90%;
-  }
-
-  .form-container h2,
-  .reviews-section h2 {
-    font-size: 1.3rem;
-    text-align: center;
-  }
-
-  .game-card img {
-    height: 150px;
-  }
-}
-html, body {
-  width: 100%;
-  overflow-x: hidden;
-}
-/* 📱 Corrección de título en pantallas pequeñas */
-@media (max-width: 600px) {
-  .app-title {
-    font-size: 1.8rem !important; /* Reduce tamaño del título */
-    line-height: 2.2rem;
-    word-break: break-word; /* Permite saltos naturales */
-    text-align: center;
-    padding: 0 0.5rem; /* Evita que se corte por los bordes */
-  }
-
-  /* Ajusta también el contenedor del formulario */
-  .form-container {
-    width: 95%;
-    margin: 0 auto;
+  input,
+  textarea {
+    font-size: 0.5rem;
   }
 }
