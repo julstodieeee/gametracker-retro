@@ -1,37 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./App.css";
 import GameCard from "./components/GameCard";
-import GameForm from "./components/GameForm";
 import ReviewForm from "./components/ReviewForm";
 import ReviewList from "./components/ReviewList";
+import GameForm from "./components/GameForm";
 
 function App() {
-  const [games, setGames] = useState([]);
   const [reviews, setReviews] = useState([]);
-
-  // 🔹 Cargar desde localStorage
-  useEffect(() => {
-    const savedGames = JSON.parse(localStorage.getItem("games")) || [];
-    const savedReviews = JSON.parse(localStorage.getItem("reviews")) || [];
-    setGames(savedGames);
-    setReviews(savedReviews);
-  }, []);
-
-  // 🔹 Guardar en localStorage
-  useEffect(() => {
-    localStorage.setItem("games", JSON.stringify(games));
-    localStorage.setItem("reviews", JSON.stringify(reviews));
-  }, [games, reviews]);
-
-  const handleAddGame = (newGame) => {
-    setGames([newGame, ...games]);
-  };
-
-  const handleAddReview = (newReview) => {
-    setReviews([newReview, ...reviews]);
-  };
-
-  const defaultGames = [
+  const [games, setGames] = useState([
     {
       id: 1,
       title: "Super Mario Bros",
@@ -50,9 +26,15 @@ function App() {
       image: "https://i.imgur.com/Z6jJZ5g.png",
       description: "Corre a toda velocidad en esta joya de SEGA.",
     },
-  ];
+  ]);
 
-  const allGames = [...defaultGames, ...games];
+  const handleAddReview = (newReview) => {
+    setReviews([newReview, ...reviews]);
+  };
+
+  const handleAddGame = (newGame) => {
+    setGames([newGame, ...games]);
+  };
 
   return (
     <div className="app-container">
@@ -63,29 +45,33 @@ function App() {
         </p>
       </header>
 
-      <section className="games-grid">
-        {allGames.map((game, index) => (
-          <GameCard key={index} game={game} />
-        ))}
-      </section>
-
+      {/* 🔹 Formulario para añadir nuevo juego */}
       <section className="form-container">
-        <h2>➕ Agrega un nuevo juego</h2>
+        <h2>🎮 Añadir un nuevo juego</h2>
         <GameForm onAddGame={handleAddGame} />
       </section>
 
+      {/* 🔹 Lista de juegos */}
+      <section className="games-grid">
+        {games.map((game) => (
+          <GameCard key={game.id} game={game} />
+        ))}
+      </section>
+
+      {/* 🔹 Formulario de reseñas */}
       <section className="form-container">
         <h2>📝 Deja tu reseña</h2>
         <ReviewForm onAddReview={handleAddReview} />
       </section>
 
+      {/* 🔹 Lista de reseñas */}
       <section className="reviews-section">
         <h2>💬 Reseñas de jugadores</h2>
         <ReviewList reviews={reviews} />
       </section>
 
       <footer className="footer">
-        © 2025 🎮 GameTracker Retro — hecho con 💙 por Julieta
+        © 2025 <strong>GameTracker Retro</strong> — hecho con 💙 por Julieta
       </footer>
     </div>
   );

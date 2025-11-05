@@ -1,20 +1,15 @@
 import React from "react";
-import { motion } from "framer-motion";
+import "./GameCard.css";
 
 function GameCard({ game }) {
   return (
-    <motion.div
-      className="game-card"
-      initial={{ opacity: 0, y: 40 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-    >
+    <div className="game-card">
       <img src={game.image} alt={game.title} />
       <div className="game-info">
         <h3>{game.title}</h3>
         <p>{game.description}</p>
       </div>
-    </motion.div>
+    </div>
   );
 }
 

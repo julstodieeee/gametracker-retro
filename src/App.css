@@ -1,51 +1,55 @@
-/* === ESTILO BASE === */
+/* 🌌 Fondo general */
 body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background-color: #0a0f1c;
+  background-color: #0f172a;
   color: #f8fafc;
-  text-align: center;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-/* === CONTENEDOR PRINCIPAL === */
+/* 🔹 Contenedor principal */
 .app-container {
+  max-width: 1200px;
+  margin: 0 auto;
   padding: 1.5rem;
-  min-height: 100vh;
-  background: radial-gradient(circle at top, #111827 0%, #0a0f1c 100%);
 }
 
-/* === CABECERA === */
+/* 🔹 Header */
 .header {
+  text-align: center;
   margin-bottom: 2rem;
-  text-shadow: 0 0 10px #38bdf8, 0 0 20px #0ea5e9;
 }
 
 .app-title {
-  font-size: 2.2rem;
+  font-size: 2.8rem;
+  font-weight: 700;
   color: #38bdf8;
-  text-shadow: 0 0 10px #38bdf8, 0 0 25px #0ea5e9;
+  text-shadow: 0 0 15px rgba(56, 189, 248, 0.6);
+  animation: neonGlow 3s ease-in-out infinite;
 }
 
 .app-subtitle {
-  font-size: 1rem;
-  opacity: 0.9;
+  color: #cbd5e1;
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
+  text-shadow: 0 0 5px rgba(56, 189, 248, 0.3);
 }
 
-/* === GRID DE JUEGOS === */
+/* 🔹 Grid de juegos */
 .games-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 
+/* 🔹 Tarjetas de juego */
 .game-card {
-  background-color: #0f172a;
-  border: 2px solid #38bdf8;
-  border-radius: 15px;
-  padding: 1rem;
-  box-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
-  transition: transform 0.3s, box-shadow 0.3s;
+  background-color: #1e293b;
+  border-radius: 1rem;
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.25);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .game-card:hover {
@@ -55,144 +59,134 @@ body {
 
 .game-card img {
   width: 100%;
-  border-radius: 12px;
-  border: 1px solid #38bdf8;
+  height: 200px;
+  object-fit: cover;
 }
 
-/* === FORMULARIOS === */
+.game-info {
+  padding: 1rem;
+  text-align: center;
+}
+
+/* 🔹 Formulario */
 .form-container {
-  background-color: #0f172a;
+  background-color: #1e293b;
+  border-radius: 1rem;
   padding: 1.5rem;
-  border-radius: 12px;
-  border: 1px solid #38bdf8;
   margin-bottom: 2rem;
-  box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
 }
 
-.form-container h2 {
-  color: #38bdf8;
-  text-shadow: 0 0 15px #38bdf8;
-}
-
-/* === FORMULARIO DE JUEGOS === */
-.game-form {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  text-align: left;
-}
-
-.game-form .label {
-  font-weight: 600;
-  color: #38bdf8;
-  font-size: 0.9rem;
-}
-
-.game-form .input,
-.game-form .textarea {
-  background-color: #0a152a;
-  border: 1px solid #38bdf8;
-  color: #f8fafc;
-  border-radius: 8px;
-  padding: 0.6rem;
-  font-size: 0.95rem;
-  width: 100%;
-}
-
-.game-form .textarea {
-  min-height: 80px;
-  resize: vertical;
-}
-
-.image-preview {
-  display: flex;
-  justify-content: center;
-  margin-top: 0.8rem;
-}
-
-.image-preview img {
-  max-width: 100%;
-  border-radius: 10px;
-  border: 2px solid #38bdf8;
-  box-shadow: 0 0 15px rgba(56, 189, 248, 0.6);
-}
-
-/* === BOTONES === */
-.game-form .btn,
-button {
-  background-color: #38bdf8;
-  color: #0f172a;
-  font-weight: bold;
-  border: none;
-  border-radius: 8px;
-  padding: 0.8rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.game-form .btn:hover,
-button:hover {
-  background-color: #0ea5e9;
-  box-shadow: 0 0 15px #38bdf8;
-}
-
-/* === RESEÑAS === */
+/* 🔹 Reseñas */
 .reviews-section {
-  background-color: #0f172a;
-  padding: 1.5rem;
-  border-radius: 12px;
-  border: 1px solid #38bdf8;
-  box-shadow: 0 0 25px rgba(56, 189, 248, 0.4);
-  margin-bottom: 2rem;
+  margin-top: 3rem;
 }
 
-/* === FOOTER === */
+.review-card {
+  background-color: #1e293b;
+  border-radius: 1rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.2);
+}
+
+/* 🔹 Footer */
 .footer {
-  margin-top: 2rem;
-  font-size: 0.9rem;
+  text-align: center;
+  padding: 2rem 0;
   color: #94a3b8;
-  text-shadow: 0 0 10px #38bdf8;
+  font-size: 0.9rem;
+  border-top: 1px solid rgba(56, 189, 248, 0.2);
+  margin-top: 3rem;
 }
 
-/* === RESPONSIVE === */
+/* ✨ Animaciones */
+@keyframes neonGlow {
+  0%, 100% {
+    text-shadow: 0 0 10px #38bdf8, 0 0 20px #0ea5e9, 0 0 40px #38bdf8;
+  }
+  50% {
+    text-shadow: 0 0 3px #38bdf8, 0 0 7px #0ea5e9;
+  }
+}
+
+/* 📱 Responsivo */
 @media (max-width: 768px) {
   .app-title {
-    font-size: 1.6rem;
+    font-size: 2rem;
+    padding: 0 1rem;
+    word-wrap: break-word;
   }
+
+  .app-subtitle {
+    font-size: 1rem;
+    padding: 0 0.5rem;
+  }
+
   .games-grid {
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    grid-template-columns: 1fr;
   }
+
+  .game-card img {
+    height: 180px;
+  }
+
   .form-container {
     padding: 1rem;
   }
-}
-/* === ✨ EFECTOS NEÓN ANIMADOS === */
 
-/* Brillo pulsante en el título */
-@keyframes neonPulse {
-  0%, 100% {
-    text-shadow: 0 0 8px #38bdf8, 0 0 20px #0ea5e9, 0 0 30px #38bdf8;
-  }
-  50% {
-    text-shadow: 0 0 2px #38bdf8, 0 0 5px #0ea5e9;
+  .form-container h2 {
+    font-size: 1.3rem;
   }
 }
-
-.app-title {
-  animation: neonPulse 2.5s ease-in-out infinite;
+/* 🔹 Formulario de añadir juegos */
+.game-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
-/* Efecto de resplandor en botones */
-@keyframes buttonGlow {
-  0%, 100% {
-    box-shadow: 0 0 10px #38bdf8;
-  }
-  50% {
-    box-shadow: 0 0 25px #0ea5e9;
-  }
+.game-form input,
+.game-form textarea {
+  background-color: #0f172a;
+  border: 1px solid #38bdf8;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  color: #f1f5f9;
+  font-size: 1rem;
+  outline: none;
+  transition: box-shadow 0.3s ease;
 }
 
-button,
-.game-form .btn {
-  animation: buttonGlow 3s ease-in-out infinite;
+.game-form input:focus,
+.game-form textarea:focus {
+  box-shadow: 0 0 10px #38bdf8;
+}
+
+.game-form button {
+  background: linear-gradient(90deg, #38bdf8, #0ea5e9);
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.game-form button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.6);
+}
+
+/* 📱 Responsivo */
+@media (max-width: 768px) {
+  .game-form input,
+  .game-form textarea {
+    font-size: 0.9rem;
+  }
+
+  .game-form button {
+    font-size: 0.95rem;
+  }
 }

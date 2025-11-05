@@ -1,83 +1,52 @@
 import React, { useState } from "react";
 
-const GameForm = ({ onAddGame }) => {
+function GameForm({ onAddGame }) {
   const [title, setTitle] = useState("");
-  const [genre, setGenre] = useState("");
+  const [image, setImage] = useState("");
   const [description, setDescription] = useState("");
-  const [imageUrl, setImageUrl] = useState("");
-  const [preview, setPreview] = useState(null);
-
-  const handleImageChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      const previewURL = URL.createObjectURL(file);
-      setPreview(previewURL);
-      setImageUrl(previewURL);
-    }
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    if (!title.trim()) return alert("Por favor, ingresa un título para el juego.");
+    if (!title || !image || !description) {
+      alert("Por favor completa todos los campos 😅");
+      return;
+    }
 
     const newGame = {
-      title: title.trim(),
-      genre: genre.trim(),
-      description: description.trim(),
-      image: imageUrl.trim() || process.env.PUBLIC_URL + "/img/default.jpg",
+      id: Date.now(),
+      title,
+      image,
+      description,
     };
 
     onAddGame(newGame);
-
-    // Reiniciar formulario
     setTitle("");
-    setGenre("");
+    setImage("");
     setDescription("");
-    setImageUrl("");
-    setPreview(null);
   };
 
   return (
-    <form onSubmit={handleSubmit} className="game-form">
-      <label className="label">🎮 Título del juego</label>
+    <form className="game-form" onSubmit={handleSubmit}>
       <input
-        className="input"
+        type="text"
+        placeholder="Título del juego"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
-        placeholder="Ej: Mario Kart"
       />
-
-      <label className="label">🏷️ Género</label>
       <input
-        className="input"
-        value={genre}
-        onChange={(e) => setGenre(e.target.value)}
-        placeholder="Ej: Carreras, Aventura..."
+        type="text"
+        placeholder="URL de la imagen"
+        value={image}
+        onChange={(e) => setImage(e.target.value)}
       />
-
-      <label className="label">📝 Descripción</label>
       <textarea
-        className="textarea"
+        placeholder="Descripción del juego"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
-        placeholder="Escribe una breve descripción del juego"
-      />
-
-      <label className="label">🖼️ Imagen del juego</label>
-      <input type="file" accept="image/*" onChange={handleImageChange} className="input" />
-
-      {preview && (
-        <div className="image-preview">
-          <img src={preview} alt="Vista previa" />
-        </div>
-      )}
-
-      <button type="submit" className="btn">
-        💾 Guardar Juego
-      </button>
+      ></textarea>
+      <button type="submit">Agregar juego</button>
     </form>
   );
-};
+}
 
 export default GameForm;
