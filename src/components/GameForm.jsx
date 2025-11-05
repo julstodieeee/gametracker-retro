@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./GameForm.css";
 
 function GameForm({ onAddGame }) {
   const [title, setTitle] = useState("");
@@ -7,10 +8,7 @@ function GameForm({ onAddGame }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!title || !image || !description) {
-      alert("Por favor completa todos los campos 😅");
-      return;
-    }
+    if (!title.trim() || !image.trim() || !description.trim()) return;
 
     const newGame = {
       id: Date.now(),
@@ -43,7 +41,7 @@ function GameForm({ onAddGame }) {
         placeholder="Descripción del juego"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
-      ></textarea>
+      />
       <button type="submit">Agregar juego</button>
     </form>
   );

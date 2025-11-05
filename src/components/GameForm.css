@@ -1,0 +1,30 @@
+.game-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.game-form input,
+.game-form textarea {
+  background-color: #0f172a;
+  color: #f1f5f9;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  padding: 0.8rem;
+  font-size: 1rem;
+}
+
+.game-form button {
+  background-color: #3b82f6;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  padding: 0.8rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.game-form button:hover {
+  background-color: #2563eb;
+}

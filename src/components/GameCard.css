@@ -1,52 +1,31 @@
-/* 🎮 Estilos para cada tarjeta de juego */
 .game-card {
   background-color: #1e293b;
-  border-radius: 1rem;
-  box-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 0 20px rgba(37, 99, 235, 0.2);
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
 }
 
 .game-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 0 25px rgba(56, 189, 248, 0.5);
+  box-shadow: 0 0 30px rgba(37, 99, 235, 0.4);
 }
 
-.game-card img {
+.game-image {
   width: 100%;
-  height: 200px;
+  height: 300px;
   object-fit: cover;
-  border-bottom: 2px solid #38bdf8;
+  border-radius: 8px;
+  margin-bottom: 1rem;
 }
 
-.game-info {
-  padding: 1rem;
-  text-align: center;
-}
-
-.game-info h3 {
-  color: #38bdf8;
+h3 {
+  color: #60a5fa;
   margin-bottom: 0.5rem;
-  font-size: 1.4rem;
-  text-shadow: 0 0 6px rgba(56, 189, 248, 0.4);
 }
 
-.game-info p {
+p {
   color: #cbd5e1;
   font-size: 0.95rem;
-}
-
-/* 📱 Responsivo */
-@media (max-width: 768px) {
-  .game-card img {
-    height: 180px;
-  }
-
-  .game-info h3 {
-    font-size: 1.2rem;
-  }
-
-  .game-info p {
-    font-size: 0.9rem;
-  }
 }
