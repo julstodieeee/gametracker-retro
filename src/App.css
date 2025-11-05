@@ -1,66 +1,86 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-
 body {
   margin: 0;
-  padding: 0;
-  font-family: 'Press Start 2P', cursive;
-  background-color: black;
+  background-color: #000;
+  font-family: "Press Start 2P", cursive;
   color: #fff;
   text-align: center;
+  overflow-x: hidden;
 }
 
 .app-container {
   padding: 20px;
 }
 
+/* 🟢 Encabezado */
 .header {
-  margin-bottom: 40px;
+  text-align: center;
+  padding: 30px 10px;
+  color: #00eaff;
+  text-shadow: 0 0 10px #00eaff, 0 0 20px #00eaff, 0 0 40px #007bff;
 }
 
 .app-title {
-  font-size: 24px;
-  color: #ff00ff;
-  text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff33cc, 0 0 40px #ff00ff;
+  font-size: 1.8rem;
   margin-bottom: 10px;
 }
 
 .app-subtitle {
-  color: #d8bfff;
-  font-size: 12px;
-  text-shadow: 0 0 6px #ff33ff;
+  font-size: 0.8rem;
+  color: #ccc;
 }
 
+/* 🕹️ Tarjetas */
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+/* 🟣 Formularios */
 .form-container {
-  background: radial-gradient(circle, #2a004e 0%, #12002c 100%);
-  border: 2px solid #ff00ff;
-  box-shadow: 0 0 20px #ff00ff, 0 0 40px #ff00ff;
-  border-radius: 16px;
-  padding: 30px;
-  margin: 30px auto;
+  margin: 40px auto;
+  padding: 20px;
+  background: rgba(20, 20, 20, 0.85);
+  border: 2px solid #00eaff;
+  border-radius: 12px;
+  box-shadow: 0 0 15px #00eaff, 0 0 40px #00eaff;
   width: 90%;
   max-width: 600px;
 }
 
 .form-container h2 {
-  color: #ff66ff;
-  text-shadow: 0 0 8px #ff33ff;
+  color: #00eaff;
+  text-shadow: 0 0 10px #00eaff, 0 0 20px #00eaff;
   margin-bottom: 20px;
 }
 
-.games-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-}
-
+/* 💬 Reseñas */
 .reviews-section {
   margin-top: 40px;
 }
 
+/* 🔻 Footer */
 .footer {
-  margin-top: 50px;
-  color: #ffccff;
-  text-shadow: 0 0 5px #ff00ff;
-  font-size: 10px;
+  margin-top: 60px;
+  padding: 15px;
+  font-size: 0.7rem;
+  color: #aaa;
+  background: #000;
+  border-top: 1px solid #00eaff;
+}
+
+/* 📱 Responsivo */
+@media (max-width: 768px) {
+  .app-title {
+    font-size: 1.3rem;
+  }
+
+  .games-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-container {
+    width: 95%;
+  }
 }

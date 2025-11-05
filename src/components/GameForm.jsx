@@ -9,15 +9,7 @@ function GameForm({ onAddGame }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!title.trim() || !image.trim() || !description.trim()) return;
-
-    const newGame = {
-      id: Date.now(),
-      title,
-      image,
-      description,
-    };
-
-    onAddGame(newGame);
+    onAddGame({ title, image, description });
     setTitle("");
     setImage("");
     setDescription("");
@@ -33,7 +25,7 @@ function GameForm({ onAddGame }) {
       />
       <input
         type="text"
-        placeholder="URL de la imagen"
+        placeholder="URL de imagen"
         value={image}
         onChange={(e) => setImage(e.target.value)}
       />
@@ -41,8 +33,8 @@ function GameForm({ onAddGame }) {
         placeholder="Descripción del juego"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
-      />
-      <button type="submit">Agregar juego</button>
+      ></textarea>
+      <button type="submit">Añadir juego 🎮</button>
     </form>
   );
 }

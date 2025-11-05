@@ -1,0 +1,33 @@
+.review-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 10px;
+}
+
+.review-item {
+  background: rgba(10, 10, 10, 0.9);
+  border: 2px solid #00eaff;
+  border-radius: 10px;
+  padding: 15px;
+  color: #fff;
+  text-align: left;
+  box-shadow: 0 0 10px #00eaff, 0 0 20px #00eaff;
+}
+
+.review-item h4 {
+  color: #00eaff;
+  margin-bottom: 8px;
+  font-size: 0.8rem;
+}
+
+.review-item p {
+  color: #ccc;
+  font-size: 0.7rem;
+}
+
+.no-reviews {
+  color: #aaa;
+  font-size: 0.7rem;
+  text-shadow: 0 0 5px #00eaff;
+}
