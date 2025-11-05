@@ -1,174 +1,157 @@
-/* === ESTILO RETRO ORIGINAL - GAME TRACKER RETRO === */
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-
+/* === ESTILO BASE === */
 body {
   margin: 0;
-  font-family: 'Press Start 2P', cursive;
-  background-color: #000;
-  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  background-color: #0a0f1c;
+  color: #f8fafc;
   text-align: center;
-  overflow-x: hidden;
 }
 
-/* TÍTULO PRINCIPAL */
+/* === CONTENEDOR PRINCIPAL === */
+.app-container {
+  padding: 1.5rem;
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #111827 0%, #0a0f1c 100%);
+}
+
+/* === CABECERA === */
+.header {
+  margin-bottom: 2rem;
+  text-shadow: 0 0 10px #38bdf8, 0 0 20px #0ea5e9;
+}
+
 .app-title {
-  font-size: 2.5rem;
-  color: #fff;
-  text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 40px #ff00ff;
-  margin-top: 50px;
-}
-
-.app-title::before,
-.app-title::after {
-  content: "🎮";
-  margin: 0 10px;
-  text-shadow: 0 0 15px #ff00ff;
+  font-size: 2.2rem;
+  color: #38bdf8;
+  text-shadow: 0 0 10px #38bdf8, 0 0 25px #0ea5e9;
 }
 
 .app-subtitle {
-  font-size: 0.8rem;
-  color: #ffb3ff;
-  text-shadow: 0 0 8px #ff00ff;
-  margin-top: 10px;
-}
-
-/* CONTENEDOR PRINCIPAL */
-.app-container {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-}
-
-/* === FORMULARIO AGREGAR NUEVO JUEGO === */
-.form-container {
-  background: linear-gradient(180deg, #2a007a, #1a003d);
-  border: 3px solid #ff00ff;
-  box-shadow: 0 0 20px #ff00ff, 0 0 50px #ff00ff;
-  border-radius: 20px;
-  padding: 25px;
-  max-width: 480px;
-  width: 90%;
-  margin: 60px auto;
-}
-
-.form-container h2 {
-  color: #ffccff;
-  text-shadow: 0 0 10px #ff00ff;
   font-size: 1rem;
-  margin-bottom: 25px;
+  opacity: 0.9;
 }
 
-/* CAMPOS */
-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-input,
-textarea {
-  width: 90%;
-  padding: 12px;
-  border: 2px solid #ff00ff;
-  border-radius: 10px;
-  background-color: #000;
-  color: #fff;
-  margin-bottom: 15px;
-  font-family: 'Press Start 2P', cursive;
-  font-size: 0.6rem;
-  text-align: left;
-  box-shadow: inset 0 0 10px #ff00ff;
-}
-
-input:focus,
-textarea:focus {
-  outline: none;
-  box-shadow: 0 0 15px #ff00ff, inset 0 0 10px #ff00ff;
-}
-
-/* BOTÓN */
-button {
-  background: linear-gradient(90deg, #ff0080, #ff33ff);
-  border: none;
-  color: #fff;
-  padding: 12px 25px;
-  border-radius: 10px;
-  font-size: 0.7rem;
-  cursor: pointer;
-  font-family: 'Press Start 2P', cursive;
-  box-shadow: 0 0 20px #ff00ff;
-  transition: all 0.2s ease-in-out;
-}
-
-button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 25px #ff00ff, 0 0 50px #ff00ff;
-}
-
-/* === TARJETAS DE JUEGOS === */
+/* === GRID DE JUEGOS === */
 .games-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-  padding: 40px 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 .game-card {
-  background: linear-gradient(145deg, #1a0033, #000);
-  border: 2px solid #ff00ff;
+  background-color: #0f172a;
+  border: 2px solid #38bdf8;
   border-radius: 15px;
-  padding: 15px;
-  width: 250px;
-  box-shadow: 0 0 10px #ff00ff, 0 0 20px #9900ff;
-  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  padding: 1rem;
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .game-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 25px #ff00ff, 0 0 40px #9900ff;
+  transform: translateY(-5px);
+  box-shadow: 0 0 25px rgba(56, 189, 248, 0.6);
 }
 
 .game-card img {
   width: 100%;
-  border-radius: 10px;
-  margin-bottom: 10px;
+  border-radius: 12px;
+  border: 1px solid #38bdf8;
 }
 
-.game-card h3 {
-  color: #fff;
+/* === FORMULARIOS === */
+.form-container {
+  background-color: #0f172a;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid #38bdf8;
+  margin-bottom: 2rem;
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+}
+
+.form-container h2 {
+  color: #38bdf8;
+  text-shadow: 0 0 15px #38bdf8;
+}
+
+/* === FORMULARIO DE JUEGOS === */
+.game-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  text-align: left;
+}
+
+.game-form .label {
+  font-weight: 600;
+  color: #38bdf8;
   font-size: 0.9rem;
-  margin-bottom: 8px;
 }
 
-.game-card p {
-  color: #ccc;
-  font-size: 0.7rem;
+.game-form .input,
+.game-form .textarea {
+  background-color: #0a152a;
+  border: 1px solid #38bdf8;
+  color: #f8fafc;
+  border-radius: 8px;
+  padding: 0.6rem;
+  font-size: 0.95rem;
+  width: 100%;
+}
+
+.game-form .textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.image-preview {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.8rem;
+}
+
+.image-preview img {
+  max-width: 100%;
+  border-radius: 10px;
+  border: 2px solid #38bdf8;
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.6);
+}
+
+/* === BOTONES === */
+.game-form .btn,
+button {
+  background-color: #38bdf8;
+  color: #0f172a;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  padding: 0.8rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.game-form .btn:hover,
+button:hover {
+  background-color: #0ea5e9;
+  box-shadow: 0 0 15px #38bdf8;
 }
 
 /* === RESEÑAS === */
 .reviews-section {
-  background: linear-gradient(180deg, #2a007a, #000);
-  border-top: 2px solid #ff00ff;
-  padding: 30px 20px;
-  box-shadow: inset 0 0 30px #660099;
+  background-color: #0f172a;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid #38bdf8;
+  box-shadow: 0 0 25px rgba(56, 189, 248, 0.4);
+  margin-bottom: 2rem;
 }
 
-.reviews-section h2 {
-  color: #ffb3ff;
-  text-shadow: 0 0 10px #ff00ff;
-  margin-bottom: 20px;
-}
-
-/* FOOTER */
+/* === FOOTER === */
 .footer {
-  margin-top: 50px;
-  font-size: 0.7rem;
-  color: #ff99ff;
-  text-shadow: 0 0 10px #ff00ff;
-  padding-bottom: 40px;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: #94a3b8;
+  text-shadow: 0 0 10px #38bdf8;
 }
 
 /* === RESPONSIVE === */
@@ -176,31 +159,40 @@ button:hover {
   .app-title {
     font-size: 1.6rem;
   }
-
-  .form-container {
-    width: 90%;
-    padding: 20px 10px;
-    margin: 30px auto;
-  }
-
-  input,
-  textarea {
-    width: 95%;
-    font-size: 0.55rem;
-  }
-
-  button {
-    font-size: 0.6rem;
-    padding: 10px 15px;
-  }
-
-  .game-card {
-    width: 90%;
-  }
-
   .games-grid {
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   }
+  .form-container {
+    padding: 1rem;
+  }
+}
+/* === ✨ EFECTOS NEÓN ANIMADOS === */
+
+/* Brillo pulsante en el título */
+@keyframes neonPulse {
+  0%, 100% {
+    text-shadow: 0 0 8px #38bdf8, 0 0 20px #0ea5e9, 0 0 30px #38bdf8;
+  }
+  50% {
+    text-shadow: 0 0 2px #38bdf8, 0 0 5px #0ea5e9;
+  }
+}
+
+.app-title {
+  animation: neonPulse 2.5s ease-in-out infinite;
+}
+
+/* Efecto de resplandor en botones */
+@keyframes buttonGlow {
+  0%, 100% {
+    box-shadow: 0 0 10px #38bdf8;
+  }
+  50% {
+    box-shadow: 0 0 25px #0ea5e9;
+  }
+}
+
+button,
+.game-form .btn {
+  animation: buttonGlow 3s ease-in-out infinite;
 }

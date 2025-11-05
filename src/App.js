@@ -1,84 +1,81 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import GameCard from "./components/GameCard";
+import GameForm from "./components/GameForm";
 import ReviewForm from "./components/ReviewForm";
 import ReviewList from "./components/ReviewList";
 
 function App() {
+  const [games, setGames] = useState([]);
   const [reviews, setReviews] = useState([]);
+
+  // 🔹 Cargar desde localStorage
+  useEffect(() => {
+    const savedGames = JSON.parse(localStorage.getItem("games")) || [];
+    const savedReviews = JSON.parse(localStorage.getItem("reviews")) || [];
+    setGames(savedGames);
+    setReviews(savedReviews);
+  }, []);
+
+  // 🔹 Guardar en localStorage
+  useEffect(() => {
+    localStorage.setItem("games", JSON.stringify(games));
+    localStorage.setItem("reviews", JSON.stringify(reviews));
+  }, [games, reviews]);
+
+  const handleAddGame = (newGame) => {
+    setGames([newGame, ...games]);
+  };
 
   const handleAddReview = (newReview) => {
     setReviews([newReview, ...reviews]);
   };
 
-  const games = [
+  const defaultGames = [
     {
       id: 1,
       title: "Super Mario Bros",
-      image: process.env.PUBLIC_URL + "/img/mario.jpg",
+      image: "https://i.imgur.com/fXui4u8.png",
       description: "El clásico de Nintendo que marcó una generación.",
     },
     {
       id: 2,
       title: "The Legend of Zelda",
-      image: process.env.PUBLIC_URL + "/img/zelda.jpg",
+      image: "https://i.imgur.com/3BzUZJP.png",
       description: "Una aventura épica con Link y la Trifuerza.",
     },
     {
       id: 3,
-      title: "Pac-Man",
-      image: process.env.PUBLIC_URL + "/img/pacman.jpg",
-      description: "El arcade más icónico de los años 80.",
-    },
-    {
-      id: 4,
-      title: "Minecraft",
-      image: process.env.PUBLIC_URL + "/img/minecraft.jpg",
-      description: "Crea, explora y sobrevive en mundos infinitos.",
-    },
-    {
-      id: 5,
-      title: "Among Us",
-      image: process.env.PUBLIC_URL + "/img/amongus.jpg",
-      description: "Descubre al impostor en esta divertida aventura espacial.",
-    },
-    {
-      id: 6,
-      title: "Five Nights at Freddy’s",
-      image: process.env.PUBLIC_URL + "/img/fnaf.jpg",
-      description: "Sobrevive a la noche entre animatrónicos terroríficos.",
-    },
-    {
-      id: 7,
-      title: "Roblox",
-      image: process.env.PUBLIC_URL + "/img/roblox.jpg",
-      description: "Crea tus propios mundos y juega con amigos.",
-    },
-    {
-      id: 8,
-      title: "Fortnite",
-      image: process.env.PUBLIC_URL + "/img/fortnite.jpg",
-      description: "El battle royale más popular del planeta.",
+      title: "Sonic the Hedgehog",
+      image: "https://i.imgur.com/Z6jJZ5g.png",
+      description: "Corre a toda velocidad en esta joya de SEGA.",
     },
   ];
+
+  const allGames = [...defaultGames, ...games];
 
   return (
     <div className="app-container">
       <header className="header">
-        <h1 className="app-title">🎮 GameTracker Retro</h1>
+        <h1 className="app-title">🎮 GameTracker Retro 🎮</h1>
         <p className="app-subtitle">
           Explora, reseña y revive los mejores clásicos de todos los tiempos.
         </p>
       </header>
 
       <section className="games-grid">
-        {games.map((game) => (
-          <GameCard key={game.id} game={game} />
+        {allGames.map((game, index) => (
+          <GameCard key={index} game={game} />
         ))}
       </section>
 
       <section className="form-container">
-        <h2>🕹️ Agregar Nuevo Juego</h2>
+        <h2>➕ Agrega un nuevo juego</h2>
+        <GameForm onAddGame={handleAddGame} />
+      </section>
+
+      <section className="form-container">
+        <h2>📝 Deja tu reseña</h2>
         <ReviewForm onAddReview={handleAddReview} />
       </section>
 
@@ -88,7 +85,7 @@ function App() {
       </section>
 
       <footer className="footer">
-        © 2025 GameTracker Retro — hecho con 💜 por Julieta
+        © 2025 🎮 GameTracker Retro — hecho con 💙 por Julieta
       </footer>
     </div>
   );
