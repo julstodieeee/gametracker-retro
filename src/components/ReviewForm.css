@@ -1,0 +1,33 @@
+.review-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.review-form input,
+.review-form textarea {
+  background: black;
+  border: 2px solid #ff00ff;
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 10px;
+}
+
+.review-form button {
+  background: #ff00ff;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'Press Start 2P', cursive;
+  text-shadow: 0 0 5px #fff;
+  box-shadow: 0 0 15px #ff33ff;
+}
+
+.review-form button:hover {
+  background: #ff33ff;
+  box-shadow: 0 0 25px #ff00ff;
+}

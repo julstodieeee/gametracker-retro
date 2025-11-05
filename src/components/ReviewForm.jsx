@@ -1,54 +1,46 @@
 import React, { useState } from "react";
+import "./ReviewForm.css";
 
 function ReviewForm({ onAddReview }) {
-  const [name, setName] = useState("");
-  const [game, setGame] = useState("");
-  const [text, setText] = useState("");
+  const [title, setTitle] = useState("");
+  const [image, setImage] = useState("");
+  const [description, setDescription] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!name || !game || !text) return;
-
-    const newReview = {
+    if (!title || !description) return;
+    const newGame = {
       id: Date.now(),
-      name,
-      game,
-      text,
+      title,
+      image: image || "/img/pacman.jpg",
+      description,
     };
-
-    onAddReview(newReview);
-    setName("");
-    setGame("");
-    setText("");
+    onAddReview(newGame);
+    setTitle("");
+    setImage("");
+    setDescription("");
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>Tu nombre</label>
+    <form className="review-form" onSubmit={handleSubmit}>
       <input
         type="text"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        placeholder="Ej: Alex"
+        placeholder="Título del juego"
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
       />
-
-      <label>Juego</label>
       <input
         type="text"
-        value={game}
-        onChange={(e) => setGame(e.target.value)}
-        placeholder="Ej: Super Mario Bros"
+        placeholder="URL de la imagen (opcional)"
+        value={image}
+        onChange={(e) => setImage(e.target.value)}
       />
-
-      <label>Tu reseña</label>
       <textarea
-        rows="3"
-        value={text}
-        onChange={(e) => setText(e.target.value)}
-        placeholder="Escribe tu opinión..."
-      ></textarea>
-
-      <button type="submit">Enviar reseña</button>
+        placeholder="Descripción del juego"
+        value={description}
+        onChange={(e) => setDescription(e.target.value)}
+      />
+      <button type="submit">Agregar Juego</button>
     </form>
   );
 }

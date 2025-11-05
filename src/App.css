@@ -1,77 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 body {
-  background-color: #0b0f19;
-  color: #e2e8f0;
-  font-family: "Poppins", sans-serif;
   margin: 0;
   padding: 0;
+  font-family: 'Press Start 2P', cursive;
+  background-color: black;
+  color: #fff;
+  text-align: center;
 }
 
 .app-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 1.5rem;
+  padding: 20px;
 }
 
 .header {
-  text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 40px;
 }
 
 .app-title {
-  font-size: 3rem;
-  font-weight: 800;
-  color: #3b82f6;
-  text-shadow: 0 0 12px #2563eb, 0 0 25px #1e3a8a;
+  font-size: 24px;
+  color: #ff00ff;
+  text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff33cc, 0 0 40px #ff00ff;
+  margin-bottom: 10px;
 }
 
 .app-subtitle {
-  color: #a5b4fc;
-  font-size: 1.1rem;
-  margin-bottom: 2rem;
+  color: #d8bfff;
+  font-size: 12px;
+  text-shadow: 0 0 6px #ff33ff;
 }
 
-/* Grid de juegos */
-.games-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-  gap: 1.5rem;
-  margin-bottom: 3rem;
-}
-
-/* Formularios */
 .form-container {
-  background-color: #111827;
-  border-radius: 12px;
-  padding: 1.5rem;
-  margin-bottom: 2rem;
-  box-shadow: 0 0 15px rgba(59, 130, 246, 0.2);
+  background: radial-gradient(circle, #2a004e 0%, #12002c 100%);
+  border: 2px solid #ff00ff;
+  box-shadow: 0 0 20px #ff00ff, 0 0 40px #ff00ff;
+  border-radius: 16px;
+  padding: 30px;
+  margin: 30px auto;
+  width: 90%;
+  max-width: 600px;
 }
 
 .form-container h2 {
-  text-align: center;
-  color: #60a5fa;
-  margin-bottom: 1rem;
+  color: #ff66ff;
+  text-shadow: 0 0 8px #ff33ff;
+  margin-bottom: 20px;
 }
 
-/* Pie */
+.games-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.reviews-section {
+  margin-top: 40px;
+}
+
 .footer {
-  text-align: center;
-  color: #94a3b8;
-  font-size: 0.9rem;
-  margin-top: 2rem;
-}
-
-/* Responsividad */
-@media (max-width: 768px) {
-  .app-title {
-    font-size: 2.2rem;
-  }
-
-  .games-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .form-container {
-    padding: 1rem;
-  }
+  margin-top: 50px;
+  color: #ffccff;
+  text-shadow: 0 0 5px #ff00ff;
+  font-size: 10px;
 }
