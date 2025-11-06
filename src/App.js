@@ -10,31 +10,31 @@ function App() {
     {
       id: 1,
       title: "Super Mario Bros",
-      image: "https://i.imgur.com/fXui4u8.png",
+      image: "https://upload.wikimedia.org/wikipedia/en/0/03/Super_Mario_Bros._box.png",
       description: "El clásico de Nintendo que marcó una generación.",
     },
     {
       id: 2,
       title: "The Legend of Zelda",
-      image: "https://i.imgur.com/3BzUZJP.png",
+      image: "https://upload.wikimedia.org/wikipedia/en/e/e6/The_Legend_of_Zelda_Boxart.png",
       description: "Una aventura épica con Link y la Trifuerza.",
     },
     {
       id: 3,
       title: "Sonic the Hedgehog",
-      image: "https://i.imgur.com/Z6jJZ5g.png",
+      image: "https://upload.wikimedia.org/wikipedia/en/6/6f/Sonic_the_Hedgehog_1_Genesis_box_art.jpg",
       description: "Corre a toda velocidad en esta joya de SEGA.",
     },
     {
       id: 4,
       title: "Pac-Man",
-      image: "https://i.imgur.com/3tuF7Jj.png",
+      image: "https://upload.wikimedia.org/wikipedia/en/5/59/Pac-man.png",
       description: "Come puntos y evita fantasmas en este arcade legendario.",
     },
     {
       id: 5,
       title: "Donkey Kong",
-      image: "https://i.imgur.com/rp1f3iv.png",
+      image: "https://upload.wikimedia.org/wikipedia/en/3/36/Donkey_Kong.png",
       description: "Salva a la princesa del poderoso gorila Donkey Kong.",
     },
   ]);
