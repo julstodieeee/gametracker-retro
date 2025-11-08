@@ -4,7 +4,13 @@ import "./GameForm.css";
 function GameCard({ game }) {
   return (
     <div className="game-card">
-      <img src={game.image} alt={game.name} />
+      <img
+        src={`${process.env.PUBLIC_URL}/img/${game.image}`}
+        alt={game.name}
+        onError={(e) => {
+          e.target.src = `${process.env.PUBLIC_URL}/img/default.jpg`; // opcional si hay error
+        }}
+      />
       <h3>{game.name}</h3>
       <p>{game.description}</p>
       <a href={game.url} target="_blank" rel="noopener noreferrer">
