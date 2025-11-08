@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/gametracker-retro/static/css/main.e341f71b.css",
-    "main.js": "/gametracker-retro/static/js/main.0d2bb33e.js",
+    "main.js": "/gametracker-retro/static/js/main.3c6fe80d.js",
     "index.html": "/gametracker-retro/index.html",
     "main.e341f71b.css.map": "/gametracker-retro/static/css/main.e341f71b.css.map",
-    "main.0d2bb33e.js.map": "/gametracker-retro/static/js/main.0d2bb33e.js.map"
+    "main.3c6fe80d.js.map": "/gametracker-retro/static/js/main.3c6fe80d.js.map"
   },
   "entrypoints": [
     "static/css/main.e341f71b.css",
-    "static/js/main.0d2bb33e.js"
+    "static/js/main.3c6fe80d.js"
   ]
 }
