@@ -1,86 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap');
+
 body {
   margin: 0;
-  background-color: #000;
-  font-family: "Press Start 2P", cursive;
+  font-family: 'Orbitron', sans-serif;
+  background: radial-gradient(circle at top, #000010, #000, #01010f);
   color: #fff;
   text-align: center;
+  min-height: 100vh;
   overflow-x: hidden;
+  animation: pulseBackground 12s infinite alternate ease-in-out;
+}
+
+/* 💡 Fondo pulsante suave */
+@keyframes pulseBackground {
+  0% { background-color: #000010; }
+  50% { background-color: #020025; }
+  100% { background-color: #000010; }
 }
 
 .app-container {
-  padding: 20px;
+  padding: 30px;
 }
 
-/* 🟢 Encabezado */
-.header {
-  text-align: center;
-  padding: 30px 10px;
-  color: #00eaff;
-  text-shadow: 0 0 10px #00eaff, 0 0 20px #00eaff, 0 0 40px #007bff;
-}
-
-.app-title {
-  font-size: 1.8rem;
+/* 🔥 Título principal con efecto neón */
+.title {
+  font-size: 2.8rem;
+  color: #0ff;
+  text-shadow: 0 0 10px #00ffff, 0 0 20px #00cccc, 0 0 40px #009999;
+  animation: flicker 3s infinite;
   margin-bottom: 10px;
 }
 
-.app-subtitle {
-  font-size: 0.8rem;
-  color: #ccc;
+/* ✨ Parpadeo suave tipo cartel retro */
+@keyframes flicker {
+  0%, 18%, 22%, 25%, 53%, 57%, 100% {
+    opacity: 1;
+    text-shadow: 
+      0 0 5px #0ff,
+      0 0 10px #0ff,
+      0 0 20px #00e6e6,
+      0 0 40px #00cccc;
+  }
+  20%, 24%, 55% {
+    opacity: 0.6;
+    text-shadow: none;
+  }
 }
 
-/* 🕹️ Tarjetas */
-.games-grid {
+.subtitle {
+  font-size: 1.2rem;
+  color: #bbb;
+  text-shadow: 0 0 10px #00cccc;
+  margin-bottom: 30px;
+}
+
+/* 🎮 Rejilla de tarjetas */
+.game-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 25px;
-  margin-top: 30px;
-}
-
-/* 🟣 Formularios */
-.form-container {
-  margin: 40px auto;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  justify-content: center;
   padding: 20px;
-  background: rgba(20, 20, 20, 0.85);
-  border: 2px solid #00eaff;
-  border-radius: 12px;
-  box-shadow: 0 0 15px #00eaff, 0 0 40px #00eaff;
-  width: 90%;
-  max-width: 600px;
 }
 
-.form-container h2 {
-  color: #00eaff;
-  text-shadow: 0 0 10px #00eaff, 0 0 20px #00eaff;
+/* 🕹️ Tarjetas de juego */
+.game-card {
+  background: rgba(0, 0, 0, 0.7);
+  border: 2px solid #0ff;
+  box-shadow: 0 0 10px #00ffff, 0 0 20px #00cccc;
+  border-radius: 20px;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.game-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.game-card:hover {
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 0 25px #00ffff, 0 0 45px #00cccc;
+}
+
+/* 📜 Formularios */
+.forms-section {
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+/* 📝 Reseñas */
+.reviews-section {
+  background: rgba(0, 0, 0, 0.6);
+  border: 2px solid #0ff;
+  box-shadow: 0 0 15px #00ffff, 0 0 30px #0099cc;
+  border-radius: 20px;
+  padding: 25px;
+  width: 85%;
+  max-width: 700px;
+  animation: glowBox 4s infinite alternate;
+}
+
+@keyframes glowBox {
+  from { box-shadow: 0 0 15px #00ffff; }
+  to { box-shadow: 0 0 35px #00cccc; }
+}
+
+.reviews-section h2 {
+  color: #0ff;
+  text-shadow: 0 0 10px #00ffff, 0 0 20px #00cccc;
   margin-bottom: 20px;
 }
 
-/* 💬 Reseñas */
-.reviews-section {
-  margin-top: 40px;
+/* ✨ Botones */
+button {
+  background: transparent;
+  color: #0ff;
+  border: 2px solid #0ff;
+  border-radius: 10px;
+  padding: 10px 18px;
+  font-weight: bold;
+  text-shadow: 0 0 10px #00ffff;
+  transition: 0.3s;
+  cursor: pointer;
 }
 
-/* 🔻 Footer */
+button:hover {
+  background: #0ff;
+  color: #000;
+  box-shadow: 0 0 20px #00ffff, 0 0 40px #00cccc;
+}
+
+/* ✏️ Inputs */
+input,
+textarea {
+  background: rgba(0, 0, 0, 0.85);
+  border: 2px solid #0ff;
+  color: #fff;
+  border-radius: 10px;
+  padding: 10px;
+  width: 100%;
+  margin-top: 8px;
+  font-family: 'Orbitron', sans-serif;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  box-shadow: 0 0 15px #00ffff;
+}
+
+/* ⚡ Footer */
 .footer {
   margin-top: 60px;
-  padding: 15px;
-  font-size: 0.7rem;
   color: #aaa;
-  background: #000;
-  border-top: 1px solid #00eaff;
-}
-
-/* 📱 Responsivo */
-@media (max-width: 768px) {
-  .app-title {
-    font-size: 1.3rem;
-  }
-
-  .games-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .form-container {
-    width: 95%;
-  }
+  font-size: 1rem;
+  text-shadow: 0 0 5px #0ff, 0 0 10px #00cccc;
+  animation: flicker 4s infinite alternate;
 }

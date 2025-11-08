@@ -8,80 +8,85 @@ import ReviewList from "./components/ReviewList";
 function App() {
   const [games, setGames] = useState([
     {
-      id: 1,
-      title: "Super Mario Bros",
-      image: "https://upload.wikimedia.org/wikipedia/en/0/03/Super_Mario_Bros._box.png",
-      description: "El clásico de Nintendo que marcó una generación.",
+      name: "Minecraft",
+      description: "Explora, construye y sobrevive en un mundo infinito de bloques.",
+      image: "/img/minecraft.jpg",
+      url: "https://www.minecraft.net/",
     },
     {
-      id: 2,
-      title: "The Legend of Zelda",
-      image: "https://upload.wikimedia.org/wikipedia/en/e/e6/The_Legend_of_Zelda_Boxart.png",
-      description: "Una aventura épica con Link y la Trifuerza.",
+      name: "Fortnite",
+      description: "Battle Royale con construcción y acción frenética.",
+      image: "/img/fortnite.jpg",
+      url: "https://www.epicgames.com/fortnite/",
     },
     {
-      id: 3,
-      title: "Sonic the Hedgehog",
-      image: "https://upload.wikimedia.org/wikipedia/en/6/6f/Sonic_the_Hedgehog_1_Genesis_box_art.jpg",
-      description: "Corre a toda velocidad en esta joya de SEGA.",
+      name: "Among Us",
+      description: "Descubre al impostor en esta aventura multijugador.",
+      image: "/img/amongus.jpg",
+      url: "https://innersloth.com/games/among-us/",
     },
     {
-      id: 4,
-      title: "Pac-Man",
-      image: "https://upload.wikimedia.org/wikipedia/en/5/59/Pac-man.png",
-      description: "Come puntos y evita fantasmas en este arcade legendario.",
+      name: "Pac-Man",
+      description: "Clásico arcade de laberintos y fantasmas retro.",
+      image: "/img/pacman.jpg",
+      url: "https://www.bandainamcoent.com/games/pac-man",
     },
     {
-      id: 5,
-      title: "Donkey Kong",
-      image: "https://upload.wikimedia.org/wikipedia/en/3/36/Donkey_Kong.png",
-      description: "Salva a la princesa del poderoso gorila Donkey Kong.",
+      name: "Roblox",
+      description: "Crea, juega y comparte tus mundos virtuales.",
+      image: "/img/roblox.jpg",
+      url: "https://www.roblox.com/",
+    },
+    {
+      name: "Zelda",
+      description: "Aventura épica en un mundo mágico lleno de misterios.",
+      image: "/img/zelda.jpg",
+      url: "https://www.zelda.com/",
+    },
+    {
+      name: "FNAF",
+      description: "Sobrevive a la noche en la pizzería más aterradora.",
+      image: "/img/fnaf.jpg",
+      url: "https://www.scottgames.com/",
+    },
+    {
+      name: "Mario Bros",
+      description: "Corre, salta y rescata a la princesa en este clásico de Nintendo.",
+      image: "/img/mario.jpg",
+      url: "https://mario.nintendo.com/",
     },
   ]);
 
   const [reviews, setReviews] = useState([]);
 
   const handleAddGame = (newGame) => {
-    setGames([{ ...newGame, id: Date.now() }, ...games]);
+    setGames([...games, newGame]);
   };
 
   const handleAddReview = (newReview) => {
-    setReviews([newReview, ...reviews]);
+    setReviews([...reviews, newReview]);
   };
 
   return (
     <div className="app-container">
-      <header className="header">
-        <h1 className="app-title">🎮 GameTracker Retro 🎮</h1>
-        <p className="app-subtitle">
-          Explora, añade juegos, reseña y revive los mejores clásicos.
-        </p>
-      </header>
+      <h1 className="title">🎮 GameTracker Retro Neon 🎮</h1>
+      <p className="subtitle">Explora, agrega y reseña tus juegos favoritos</p>
 
-      <section className="games-grid">
-        {games.map((game) => (
-          <GameCard key={game.id} game={game} />
+      <div className="game-grid">
+        {games.map((game, index) => (
+          <GameCard key={index} game={game} />
         ))}
-      </section>
+      </div>
 
-      <section className="form-container">
-        <h2>➕ Añadir nuevo juego</h2>
+      <div className="forms-section">
         <GameForm onAddGame={handleAddGame} />
-      </section>
+        <div className="reviews-section">
+          <ReviewForm onAddReview={handleAddReview} />
+          <ReviewList reviews={reviews} />
+        </div>
+      </div>
 
-      <section className="form-container">
-        <h2>💬 Deja tu reseña</h2>
-        <ReviewForm onAddReview={handleAddReview} />
-      </section>
-
-      <section className="reviews-section">
-        <h2>🕹️ Reseñas de jugadores</h2>
-        <ReviewList reviews={reviews} />
-      </section>
-
-      <footer className="footer">
-        © 2025 GameTracker Retro — hecho con 💙 por Julieta
-      </footer>
+      <footer className="footer">🕹️ Proyecto GameTracker Retro Neon · 2025 🕹️</footer>
     </div>
   );
 }

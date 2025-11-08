@@ -1,34 +1,55 @@
 .game-form {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+  background: rgba(0, 0, 0, 0.8);
+  border: 2px solid #00eaff;
+  border-radius: 20px;
+  padding: 30px;
+  margin-top: 40px;
+  box-shadow: 0 0 20px #00eaff, 0 0 40px #00ffff;
+  text-align: center;
+  width: 90%;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.game-form input,
-.game-form textarea {
+.game-form h2 {
+  color: #00eaff;
+  text-shadow: 0 0 10px #00eaff, 0 0 20px #00ffff;
+  margin-bottom: 20px;
+}
+
+.game-form input {
+  display: block;
+  width: 90%;
+  margin: 10px auto;
   padding: 10px;
   border: 2px solid #00eaff;
-  border-radius: 8px;
-  background: #111;
-  color: #fff;
-  font-family: "Press Start 2P", cursive;
-  font-size: 0.6rem;
-  resize: none;
-}
-
-.game-form button {
-  background: #00eaff;
-  color: #000;
-  font-family: "Press Start 2P", cursive;
-  border: none;
-  border-radius: 8px;
-  padding: 12px;
-  cursor: pointer;
-  box-shadow: 0 0 10px #00eaff, 0 0 20px #00eaff;
+  border-radius: 10px;
+  background: transparent;
+  color: #00eaff;
+  font-family: 'Press Start 2P', cursive;
+  outline: none;
   transition: 0.3s;
 }
 
+.game-form input:focus {
+  box-shadow: 0 0 10px #00eaff;
+}
+
+.game-form button {
+  background: black;
+  color: #00eaff;
+  border: 2px solid #00eaff;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-family: 'Press Start 2P', cursive;
+  cursor: pointer;
+  transition: 0.3s;
+  text-shadow: 0 0 10px #00ffff;
+}
+
 .game-form button:hover {
-  background: #00b8d9;
-  transform: scale(1.05);
+  background: #00eaff;
+  color: black;
+  box-shadow: 0 0 25px #00eaff, 0 0 50px #00ffff;
 }

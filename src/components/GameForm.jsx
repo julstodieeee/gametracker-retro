@@ -2,40 +2,61 @@ import React, { useState } from "react";
 import "./GameForm.css";
 
 function GameForm({ onAddGame }) {
-  const [title, setTitle] = useState("");
-  const [image, setImage] = useState("");
-  const [description, setDescription] = useState("");
+  const [form, setForm] = useState({
+    name: "",
+    description: "",
+    image: "",
+    url: "",
+  });
+
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!title.trim() || !image.trim() || !description.trim()) return;
-    onAddGame({ title, image, description });
-    setTitle("");
-    setImage("");
-    setDescription("");
+    onAddGame(form);
+    setForm({ name: "", description: "", image: "", url: "" });
   };
 
   return (
-    <form className="game-form" onSubmit={handleSubmit}>
-      <input
-        type="text"
-        placeholder="Título del juego"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-      />
-      <input
-        type="text"
-        placeholder="URL de imagen"
-        value={image}
-        onChange={(e) => setImage(e.target.value)}
-      />
-      <textarea
-        placeholder="Descripción del juego"
-        value={description}
-        onChange={(e) => setDescription(e.target.value)}
-      ></textarea>
-      <button type="submit">Añadir juego 🎮</button>
-    </form>
+    <div className="game-form">
+      <h2>➕ Añadir Juego</h2>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          name="name"
+          placeholder="Nombre del juego"
+          value={form.name}
+          onChange={handleChange}
+          required
+        />
+        <textarea
+          name="description"
+          placeholder="Descripción"
+          value={form.description}
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="text"
+          name="image"
+          placeholder="URL de la imagen (ej: /img/nuevo.jpg)"
+          value={form.image}
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="url"
+          name="url"
+          placeholder="Link para jugar"
+          value={form.url}
+          onChange={handleChange}
+          required
+        />
+        <button type="submit">Agregar</button>
+      </form>
+    </div>
   );
 }
 
