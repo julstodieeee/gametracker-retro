@@ -1,92 +1,103 @@
 import React, { useState } from "react";
-import "./App.css";
 import GameCard from "./components/GameCard";
 import GameForm from "./components/GameForm";
 import ReviewForm from "./components/ReviewForm";
 import ReviewList from "./components/ReviewList";
+import "./App.css";
 
 function App() {
+  // 🎮 Lista inicial de juegos (orden correcto)
   const [games, setGames] = useState([
     {
       name: "Minecraft",
       description: "Explora, construye y sobrevive en un mundo infinito de bloques.",
-      image: "/img/minecraft.jpg",
-      url: "https://www.minecraft.net/",
+      image: "minecraft.jpg",
+      url: "https://www.minecraft.net",
     },
     {
       name: "Fortnite",
       description: "Battle Royale con construcción y acción frenética.",
-      image: "/img/fortnite.jpg",
-      url: "https://www.epicgames.com/fortnite/",
+      image: "fortnite.jpg",
+      url: "https://www.epicgames.com/fortnite",
     },
     {
       name: "Among Us",
       description: "Descubre al impostor en esta aventura multijugador.",
-      image: "/img/amongus.jpg",
-      url: "https://innersloth.com/games/among-us/",
+      image: "amongus.jpg",
+      url: "https://innersloth.com/gameAmongUs.php",
     },
     {
       name: "Pac-Man",
       description: "Clásico arcade de laberintos y fantasmas retro.",
-      image: "/img/pacman.jpg",
-      url: "https://www.bandainamcoent.com/games/pac-man",
+      image: "pacman.jpg",
+      url: "https://pacman.com",
     },
     {
       name: "Roblox",
-      description: "Crea, juega y comparte tus mundos virtuales.",
-      image: "/img/roblox.jpg",
-      url: "https://www.roblox.com/",
+      description: "Crea tus propios mundos y juega con amigos.",
+      image: "roblox.jpg",
+      url: "https://www.roblox.com",
     },
     {
       name: "Zelda",
-      description: "Aventura épica en un mundo mágico lleno de misterios.",
-      image: "/img/zelda.jpg",
-      url: "https://www.zelda.com/",
+      description: "Embárcate en aventuras épicas para salvar Hyrule.",
+      image: "zelda.jpg",
+      url: "https://zelda.nintendo.com",
     },
     {
       name: "FNAF",
       description: "Sobrevive a la noche en la pizzería más aterradora.",
-      image: "/img/fnaf.jpg",
-      url: "https://www.scottgames.com/",
+      image: "fnaf.jpg",
+      url: "https://www.scottgames.com",
     },
     {
       name: "Mario Bros",
-      description: "Corre, salta y rescata a la princesa en este clásico de Nintendo.",
-      image: "/img/mario.jpg",
-      url: "https://mario.nintendo.com/",
+      description: "Clásico de plataformas con el fontanero más famoso.",
+      image: "mario.jpg",
+      url: "https://mario.nintendo.com",
     },
   ]);
 
+  // 💬 Reseñas
   const [reviews, setReviews] = useState([]);
 
+  // ➕ Añadir nuevo juego
   const handleAddGame = (newGame) => {
     setGames([...games, newGame]);
   };
 
+  // ✍️ Añadir nueva reseña
   const handleAddReview = (newReview) => {
     setReviews([...reviews, newReview]);
   };
 
   return (
-    <div className="app-container">
-      <h1 className="title">🎮 GameTracker Retro Neon 🎮</h1>
-      <p className="subtitle">Explora, agrega y reseña tus juegos favoritos</p>
+    <div className="App">
+      {/* Título principal */}
+      <h1 className="neon-title">
+        🎮 GameTracker Retro Neon 🎮
+      </h1>
+      <p className="neon-subtitle">Explora, agrega y reseña tus juegos favoritos</p>
 
-      <div className="game-grid">
+      {/* 📦 Lista de juegos */}
+      <div className="game-list">
         {games.map((game, index) => (
           <GameCard key={index} game={game} />
         ))}
       </div>
 
-      <div className="forms-section">
+      {/* 🕹️ Formulario para añadir nuevos juegos */}
+      <div className="section-container">
+        <h2 className="neon-section-title">Añadir Nuevo Juego</h2>
         <GameForm onAddGame={handleAddGame} />
-        <div className="reviews-section">
-          <ReviewForm onAddReview={handleAddReview} />
-          <ReviewList reviews={reviews} />
-        </div>
       </div>
 
-      <footer className="footer">🕹️ Proyecto GameTracker Retro Neon · 2025 🕹️</footer>
+      {/* 💬 Sección de reseñas */}
+      <div className="section-container">
+        <h2 className="neon-section-title">Reseñas de Usuarios</h2>
+        <ReviewForm onAddReview={handleAddReview} />
+        <ReviewList reviews={reviews} />
+      </div>
     </div>
   );
 }

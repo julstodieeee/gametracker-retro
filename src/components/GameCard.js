@@ -1,5 +1,5 @@
 import React from "react";
-import "./GameForm.css";
+import "./GameCard.css";
 
 function GameCard({ game }) {
   return (
@@ -7,9 +7,6 @@ function GameCard({ game }) {
       <img
         src={`${process.env.PUBLIC_URL}/img/${game.image}`}
         alt={game.name}
-        onError={(e) => {
-          e.target.src = `${process.env.PUBLIC_URL}/img/default.jpg`; // opcional si hay error
-        }}
       />
       <h3>{game.name}</h3>
       <p>{game.description}</p>

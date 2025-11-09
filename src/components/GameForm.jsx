@@ -2,61 +2,50 @@ import React, { useState } from "react";
 import "./GameForm.css";
 
 function GameForm({ onAddGame }) {
-  const [form, setForm] = useState({
-    name: "",
-    description: "",
-    image: "",
-    url: "",
-  });
-
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+  const [url, setUrl] = useState("");
+  const [image, setImage] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onAddGame(form);
-    setForm({ name: "", description: "", image: "", url: "" });
+    if (!name || !description || !url || !image) return;
+
+    onAddGame({ name, description, url, image });
+    setName("");
+    setDescription("");
+    setUrl("");
+    setImage("");
   };
 
   return (
-    <div className="game-form">
-      <h2>➕ Añadir Juego</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="name"
-          placeholder="Nombre del juego"
-          value={form.name}
-          onChange={handleChange}
-          required
-        />
-        <textarea
-          name="description"
-          placeholder="Descripción"
-          value={form.description}
-          onChange={handleChange}
-          required
-        />
-        <input
-          type="text"
-          name="image"
-          placeholder="URL de la imagen (ej: /img/nuevo.jpg)"
-          value={form.image}
-          onChange={handleChange}
-          required
-        />
-        <input
-          type="url"
-          name="url"
-          placeholder="Link para jugar"
-          value={form.url}
-          onChange={handleChange}
-          required
-        />
-        <button type="submit">Agregar</button>
-      </form>
-    </div>
+    <form className="game-form" onSubmit={handleSubmit}>
+      <input
+        type="text"
+        placeholder="Nombre del juego"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+      />
+      <input
+        type="text"
+        placeholder="Descripción"
+        value={description}
+        onChange={(e) => setDescription(e.target.value)}
+      />
+      <input
+        type="text"
+        placeholder="URL del juego"
+        value={url}
+        onChange={(e) => setUrl(e.target.value)}
+      />
+      <input
+        type="text"
+        placeholder="Nombre de la imagen (ej: mario.jpg)"
+        value={image}
+        onChange={(e) => setImage(e.target.value)}
+      />
+      <button type="submit" className="neon-button">Agregar 🎮</button>
+    </form>
   );
 }
 
