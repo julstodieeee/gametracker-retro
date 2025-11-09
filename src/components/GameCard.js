@@ -7,6 +7,7 @@ function GameCard({ game }) {
       <img
         src={`${process.env.PUBLIC_URL}/img/${game.image}`}
         alt={game.name}
+        onError={(e) => (e.target.style.display = "none")}
       />
       <h3>{game.name}</h3>
       <p>{game.description}</p>

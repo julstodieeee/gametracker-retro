@@ -1,0 +1,21 @@
+.reviews-section {
+  background: black;
+  padding: 2rem;
+  text-align: center;
+  color: white;
+}
+
+.neon-text {
+  font-size: 2rem;
+  color: #0ff;
+  text-shadow: 0 0 10px #0ff, 0 0 20px #0ff, 0 0 40px #0ff;
+}
+
+.review {
+  margin: 1rem auto;
+  max-width: 600px;
+  border: 1px solid #0ff;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 0 20px #0ff;
+}

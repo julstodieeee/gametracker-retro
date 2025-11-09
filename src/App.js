@@ -1,103 +1,147 @@
 import React, { useState } from "react";
 import GameCard from "./components/GameCard";
-import GameForm from "./components/GameForm";
-import ReviewForm from "./components/ReviewForm";
-import ReviewList from "./components/ReviewList";
 import "./App.css";
+import "./components/GameCard.css";
 
 function App() {
-  // 🎮 Lista inicial de juegos (orden correcto)
   const [games, setGames] = useState([
     {
+      name: "Super Mario Bros",
+      description: "Salva el Reino Champiñón en esta aventura clásica.",
+      image: "mario.jpg",
+      url: "https://supermarioplay.com/",
+    },
+    {
+      name: "The Legend of Zelda",
+      description: "Explora mazmorras y derrota a Ganon para salvar a Zelda.",
+      image: "zelda.jpg",
+      url: "https://zelda.fan/",
+    },
+    {
       name: "Minecraft",
-      description: "Explora, construye y sobrevive en un mundo infinito de bloques.",
+      description: "Crea, explora y sobrevive en un mundo de bloques.",
       image: "minecraft.jpg",
-      url: "https://www.minecraft.net",
-    },
-    {
-      name: "Fortnite",
-      description: "Battle Royale con construcción y acción frenética.",
-      image: "fortnite.jpg",
-      url: "https://www.epicgames.com/fortnite",
-    },
-    {
-      name: "Among Us",
-      description: "Descubre al impostor en esta aventura multijugador.",
-      image: "amongus.jpg",
-      url: "https://innersloth.com/gameAmongUs.php",
+      url: "https://classic.minecraft.net/",
     },
     {
       name: "Pac-Man",
-      description: "Clásico arcade de laberintos y fantasmas retro.",
+      description: "Come puntos, evita fantasmas y gana vidas extra.",
       image: "pacman.jpg",
-      url: "https://pacman.com",
+      url: "https://pacman.cc/",
     },
     {
-      name: "Roblox",
-      description: "Crea tus propios mundos y juega con amigos.",
-      image: "roblox.jpg",
-      url: "https://www.roblox.com",
+      name: "Sonic the Hedgehog",
+      description: "Corre a toda velocidad y derrota al Dr. Eggman.",
+      image: "sonic.jpg",
+      url: "https://sonicfangameshq.com/",
     },
     {
-      name: "Zelda",
-      description: "Embárcate en aventuras épicas para salvar Hyrule.",
-      image: "zelda.jpg",
-      url: "https://zelda.nintendo.com",
+      name: "Tetris",
+      description: "Acomoda las piezas para limpiar líneas y ganar puntos.",
+      image: "tetris.jpg",
+      url: "https://tetris.com/play-tetris",
     },
     {
-      name: "FNAF",
-      description: "Sobrevive a la noche en la pizzería más aterradora.",
-      image: "fnaf.jpg",
-      url: "https://www.scottgames.com",
+      name: "Street Fighter II",
+      description: "Lucha con tus personajes favoritos en combates épicos.",
+      image: "streetfighter.jpg",
+      url: "https://streetfighter.com/",
     },
     {
-      name: "Mario Bros",
-      description: "Clásico de plataformas con el fontanero más famoso.",
-      image: "mario.jpg",
-      url: "https://mario.nintendo.com",
+      name: "Donkey Kong",
+      description: "Salta y esquiva barriles para rescatar a Pauline.",
+      image: "donkeykong.jpg",
+      url: "https://donkeykong.io/",
     },
   ]);
 
-  // 💬 Reseñas
-  const [reviews, setReviews] = useState([]);
+  const [newGame, setNewGame] = useState({
+    name: "",
+    description: "",
+    image: "",
+    url: "",
+  });
 
-  // ➕ Añadir nuevo juego
-  const handleAddGame = (newGame) => {
-    setGames([...games, newGame]);
+  const handleChange = (e) => {
+    setNewGame({ ...newGame, [e.target.name]: e.target.value });
   };
 
-  // ✍️ Añadir nueva reseña
-  const handleAddReview = (newReview) => {
-    setReviews([...reviews, newReview]);
+  const handleAddGame = (e) => {
+    e.preventDefault();
+    if (newGame.name && newGame.description && newGame.image && newGame.url) {
+      setGames([...games, newGame]);
+      setNewGame({ name: "", description: "", image: "", url: "" });
+    }
   };
 
   return (
     <div className="App">
-      {/* Título principal */}
-      <h1 className="neon-title">
-        🎮 GameTracker Retro Neon 🎮
-      </h1>
-      <p className="neon-subtitle">Explora, agrega y reseña tus juegos favoritos</p>
+      <header className="app-header">
+        <h1 className="neon-title">🎮 GameTracker Retro 🎮</h1>
+      </header>
 
-      {/* 📦 Lista de juegos */}
-      <div className="game-list">
-        {games.map((game, index) => (
-          <GameCard key={index} game={game} />
-        ))}
-      </div>
+      {/* Sección de juegos */}
+      <section className="game-section">
+        <h2 className="neon-subtitle">Mis Juegos</h2>
+        <div className="game-grid">
+          {games.map((game, index) => (
+            <GameCard key={index} game={game} />
+          ))}
+        </div>
+      </section>
 
-      {/* 🕹️ Formulario para añadir nuevos juegos */}
-      <div className="section-container">
-        <h2 className="neon-section-title">Añadir Nuevo Juego</h2>
-        <GameForm onAddGame={handleAddGame} />
-      </div>
+      {/* Sección para añadir nuevos juegos */}
+      <section className="add-game-section">
+        <h2 className="neon-subtitle">➕ Añadir Nuevo Juego</h2>
+        <form className="game-form" onSubmit={handleAddGame}>
+          <input
+            type="text"
+            name="name"
+            placeholder="Nombre del juego"
+            value={newGame.name}
+            onChange={handleChange}
+          />
+          <input
+            type="text"
+            name="description"
+            placeholder="Descripción"
+            value={newGame.description}
+            onChange={handleChange}
+          />
+          <input
+            type="text"
+            name="image"
+            placeholder="Nombre de imagen (ej: mario.jpg)"
+            value={newGame.image}
+            onChange={handleChange}
+          />
+          <input
+            type="url"
+            name="url"
+            placeholder="URL del juego"
+            value={newGame.url}
+            onChange={handleChange}
+          />
+          <button type="submit">Agregar Juego</button>
+        </form>
+      </section>
 
-      {/* 💬 Sección de reseñas */}
-      <div className="section-container">
-        <h2 className="neon-section-title">Reseñas de Usuarios</h2>
-        <ReviewForm onAddReview={handleAddReview} />
-        <ReviewList reviews={reviews} />
-      </div>
+      {/* Sección de reseñas */}
+      <section className="reviews-section">
+        <h2 className="neon-subtitle">⭐ Reseñas de Jugadores ⭐</h2>
+        <div className="review">
+          <p>"Increíble selección de juegos retro, pura nostalgia!"</p>
+          <span>- GamerLover</span>
+        </div>
+        <div className="review">
+          <p>"El diseño neón y los clásicos me encantaron 💙"</p>
+          <span>- RetroQueen</span>
+        </div>
+      </section>
+
+      <footer>
+        <p>© 2025 GameTracker Retro | Diseñado con 💾 por Juls</p>
+      </footer>
     </div>
   );
 }
